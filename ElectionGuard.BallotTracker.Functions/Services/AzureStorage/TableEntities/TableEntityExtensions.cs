@@ -23,7 +23,8 @@ namespace ElectionGuard.BallotTracker.Functions.Services.AzureStorage.TableEntit
                 PartitionKey = rowKey.ToBallotStatusPartitionKey(),
                 TrackingId = status.TrackingId,
                 ApproximateCastTime = status.ApproximateCastTime,
-                Location = status.Location
+                Location = status.Location,
+                Status = Convert.ToInt32(status.Status)
             };
         }
 

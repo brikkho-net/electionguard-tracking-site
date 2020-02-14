@@ -18,7 +18,8 @@ namespace ElectionGuard.BallotTracker.Functions.Services
         {
             TrackingId = 0,
             ApproximateCastTime = 1,
-            Location = 2
+            Location = 2,
+            Status = 3
         }
 
         public BallotStatusMap()
@@ -26,6 +27,8 @@ namespace ElectionGuard.BallotTracker.Functions.Services
             Map(m => m.TrackingId).Index((int) TrackingDataColumnIndexes.TrackingId);
             Map(m => m.Location).Index((int) TrackingDataColumnIndexes.Location);
             Map(m => m.ApproximateCastTime).Index((int) TrackingDataColumnIndexes.ApproximateCastTime);
+            Map(m => m.Status).Index((int)TrackingDataColumnIndexes.Status);
+
         }
     }
 

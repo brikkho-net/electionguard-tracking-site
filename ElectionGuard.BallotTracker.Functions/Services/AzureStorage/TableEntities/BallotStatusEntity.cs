@@ -18,5 +18,6 @@ namespace ElectionGuard.BallotTracker.Functions.Services.AzureStorage.TableEntit
         public DateTime? ApproximateCastTime { get; set; }
 
         public string Details { get; set; }
+        public int Status { get; set; }
     }
 }

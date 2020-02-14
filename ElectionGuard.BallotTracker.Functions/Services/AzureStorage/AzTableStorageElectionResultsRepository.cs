@@ -82,9 +82,26 @@ namespace ElectionGuard.BallotTracker.Functions.Services.AzureStorage
                     ApproximateCastTime = e.ApproximateCastTime,
                     Location = e.Location,
                     // TODO: Add details and status for handling spoiled ballots
+                    Status = GetBallotCastSpoilStatus(Convert.ToInt32(e.Status))
                 }));
             } while (continuation != null);
             return list;
+        }
+
+        private BallotCountStatus GetBallotCastSpoilStatus(int? st)
+        {
+            if (st == 1)
+            {
+                return BallotCountStatus.Counted;
+            }
+            else if (st == 2)
+            {
+                return BallotCountStatus.Spoiled;
+            }
+            else
+            {
+                return BallotCountStatus.NotCounted;
+            }
         }
 
         public async Task<ElectionSummary> GetElectionSummary()
